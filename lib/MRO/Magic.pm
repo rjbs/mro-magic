@@ -156,7 +156,7 @@ sub _gen_fetch_magic {
 
   use Data::Dumper;
   return sub {
-    return if $_[2] ~~ $passthru;
+    return if grep {; $_ eq $_[2] } @$passthru;
 
     return if substr($_[2], 0, 1) eq '(';
 
